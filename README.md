@@ -1,0 +1,131 @@
+# Sistema de Administración de Consorcios
+
+**Trabajo Final Integrador - Grupo 128**
+
+| Integrante | Legajo |
+|---|---:|
+| Buchek, Lautaro | 0587 |
+| Casalderrey, Hernán | 0265 |
+| Castellini, Gonzalo | 4828 |
+
+**Tutora:** María Candela Grosso   
+**Repositorio único:** https://github.com/gonzilla2021/sistema-administracion-consorcios
+
+Sistema web para centralizar la administración de consorcios, unidades funcionales, personas, gastos y liquidaciones de expensas, con acceso diferenciado según el rol de cada usuario y un control simple de pagos.
+
+## Estado del proyecto
+
+El proyecto cuenta con backend y frontend implementados y publicados:
+frontend en Netlify, backend en Railway y base de datos PostgreSQL
+en Supabase. La conexión entre frontend y backend fue confirmada.
+Se dispone de 48 pruebas automatizadas del backend aprobadas.
+La validación integral del sistema sigue pendiente.
+
+## Pruebas y despliegue
+
+### Pruebas automatizadas del backend
+
+Se implementaron 48 pruebas que cubren autenticación, gastos,
+liquidaciones, pagos, personas, vinculaciones y controles de acceso.
+
+Resultado de la ejecución local: 48 pruebas, 0 fallas,
+0 errores y 0 omitidas.
+
+Las pruebas usan datos simulados y no requieren conexión a Supabase.
+Este resultado corresponde a los casos implementados y no representa
+una validación completa del sistema.
+
+### Aplicación publicada
+
+- Frontend: https://administracion-consorcios.netlify.app/login
+- Alojamiento del frontend: Netlify.
+- Backend: Railway.
+- Base de datos: PostgreSQL en Supabase.
+
+### Backend publicado
+
+- Alojamiento: Railway.
+- API: https://sistema-administracion-consorcios-production.up.railway.app
+- Estado del servicio: https://sistema-administracion-consorcios-production.up.railway.app/api/health
+- Base de datos: PostgreSQL en Supabase.
+- Verificación del despliegue: backend y base de datos en estado UP;
+  consulta a /api/usuarios sin autenticación responde HTTP 401.
+
+
+## Problema que aborda
+
+En muchos consorcios pequeños y medianos, la información se distribuye entre planillas de cálculo, documentos y grupos de mensajería. Esto dificulta el seguimiento de gastos y liquidaciones, aumenta el trabajo manual y reduce la transparencia para propietarios e inquilinos.
+
+El Sistema de Administración de Consorcios propone una fuente única de información, con accesos diferenciados según el rol de cada usuario.
+
+## Alcance comprometido para el MVP
+
+- Registro e inicio de sesión.
+- Gestión de usuarios y permisos por rol.
+- Gestión de consorcios, unidades funcionales y coeficientes de propiedad.
+- Asociación de propietarios e inquilinos a una unidad funcional.
+- Registro y clasificación de gastos ordinarios y extraordinarios.
+- Prorrateo de gastos y generación de liquidaciones mensuales.
+- Marcación simple del pago de cada liquidación como pendiente o pagado, actualizada por el administrador.
+- Consulta de la liquidación correspondiente a cada unidad según el rol del usuario.
+
+## Funcionalidades planificadas para etapas posteriores
+
+- Consulta de un estado de cuenta detallado e historial de pagos.
+- Historial ampliado de liquidaciones.
+- Registro y seguimiento de reclamos.
+- Gestión de reservas de amenities, como el SUM, la pileta o el quincho.
+- Publicación de actas y avisos.
+- Notificaciones y reportes avanzados.
+
+Estas funcionalidades no forman parte del alcance comprometido del MVP. Se evaluarán una vez que el núcleo de gestión y liquidación de expensas se encuentre terminado y probado.
+
+## Tecnologías propuestas
+
+- Frontend: React, TypeScript, Tailwind y Vite.
+- Backend: Java y Spring Boot.
+- Base de datos: PostgreSQL.
+- Seguridad: Spring Security y JWT.
+- Despliegue: Netlify para el frontend, Railway para el backend
+  y Supabase para PostgreSQL.
+- Versionado: Git y GitHub.
+
+
+## Documentación
+
+- [Primera entrega: propuesta y alcance](Entrega_1.md).
+- [Arquitectura del proyecto](docs/arquitectura.md).
+- [Listado de módulos y prioridades](docs/modulos.md).
+- [Diagrama entidad-relación](database/diagrama-entidad-relacion.md).
+- [Esquema de base de datos](database/schema-consorcios.sql).
+- [Diagrama de clases del modelo de dominio](database/uml-modelo-dominio.md).
+- [Guía de instalación y ejecución local](docs/instalacion.md).
+- [Plan B para la defensa: entorno local sin Supabase ni internet](docs/plan-b-defensa.md).
+
+## Roles y acceso a la información
+
+| Rol | Acciones principales | Información a la que accede |
+|---|---|---|
+| Superadministrador | Gestiona las cuentas administrativas y crea o administra consorcios. | Información general y administrativa de los consorcios que gestiona. |
+| Administrador de consorcio | Gestiona unidades, personas vinculadas, gastos y liquidaciones de su consorcio; además marca los pagos como pendientes o pagados. | Información completa del consorcio asignado, sin acceso a otros consorcios. |
+| Propietario | Consulta la información y las liquidaciones de sus unidades. | Datos de sus unidades y sus liquidaciones correspondientes. |
+| Inquilino | Consulta la información autorizada de la unidad que ocupa. | Datos básicos y liquidaciones habilitadas de su unidad; no accede a información patrimonial ni a otros inmuebles. |
+
+## Estructura prevista
+
+```text
+/
+|- backend/    API y lógica de negocio
+|- frontend/   Aplicación web
+|- database/   Scripts, migraciones y documentación de datos
+|- docs/       Informes y entregas académicas
+`- README.md   Presentación general del proyecto
+```
+
+## Ejecución local
+
+Ver la [guía de instalación y ejecución local](docs/instalacion.md).
+
+## Repositorio
+
+URL pública: https://github.com/gonzilla2021/sistema-administracion-consorcios
